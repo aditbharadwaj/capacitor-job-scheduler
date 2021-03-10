@@ -1,4 +1,4 @@
-import { CallbackID } from '@capacitor/core/dist/esm/core-plugin-definitions';
+
 
 declare module '@capacitor/core' {
   interface PluginRegistry {
@@ -12,6 +12,6 @@ export interface CallbackError extends Error {
 
 export interface CapacitorJobSchedulerPlugin {
   echo(options: { value: string }): Promise<{ value: string }>;
-  scheduleJob(callback: (error?: CallbackError) => void): CallbackID;
+  startForegroundServiceAboveOreo(ContentTitle:string,ContentText:string):Promise<void>;
   cancelJob(): Promise<void>;
 }

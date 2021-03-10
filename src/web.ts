@@ -8,6 +8,9 @@ export class CapacitorJobSchedulerWeb extends WebPlugin implements CapacitorJobS
       platforms: ['web'],
     });
   }
+  startForegroundServiceAboveOreo(_ContentTitle: string, _ContentText: string): Promise<void> {
+    throw new Error('Method not implemented.');
+  }
   scheduleJob(_callback: (error?: CallbackError) => void): string {
     throw new Error('Method not implemented.');
   }
