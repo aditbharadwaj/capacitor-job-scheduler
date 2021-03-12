@@ -1,14 +1,19 @@
 import { WebPlugin } from '@capacitor/core';
 import { CallbackError, CapacitorJobSchedulerPlugin } from './definitions';
 
-export class CapacitorJobSchedulerWeb extends WebPlugin implements CapacitorJobSchedulerPlugin {
+export class CapacitorJobSchedulerWeb
+  extends WebPlugin
+  implements CapacitorJobSchedulerPlugin {
   constructor() {
     super({
       name: 'CapacitorJobScheduler',
       platforms: ['web'],
     });
   }
-  startForegroundServiceAboveOreo(_ContentTitle: string, _ContentText: string): Promise<void> {
+  startForegroundServiceAboveOreo(
+    _ContentTitle: string,
+    _ContentText: string,
+  ): Promise<void> {
     throw new Error('Method not implemented.');
   }
   scheduleJob(_callback: (error?: CallbackError) => void): string {
@@ -18,7 +23,11 @@ export class CapacitorJobSchedulerWeb extends WebPlugin implements CapacitorJobS
     throw new Error('Method not implemented.');
   }
 
-  async echo(options: { value: string }): Promise<{ value: string }> {
+  async echo(options: {
+    value: string;
+    contentTitle: string;
+    contentText: string;
+  }): Promise<{ value: string; contentTitle: string; contentText: string }> {
     console.log('ECHO', options);
     return options;
   }

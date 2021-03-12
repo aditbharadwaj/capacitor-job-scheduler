@@ -1,4 +1,4 @@
-
+//import { CallbackID } from '@capacitor/core';
 
 declare module '@capacitor/core' {
   interface PluginRegistry {
@@ -11,7 +11,14 @@ export interface CallbackError extends Error {
 }
 
 export interface CapacitorJobSchedulerPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
-  startForegroundServiceAboveOreo(ContentTitle:string,ContentText:string):Promise<void>;
+  echo(options: {
+    value: string;
+    contentTitle: string;
+    contentText: string;
+  }): Promise<{ value: string; contentTitle: string; contentText: string }>;
+  /* startForegroundServiceAboveOreo(
+    ContentTitle: string,
+    ContentText: string,
+  ): CallbackID; */
   cancelJob(): Promise<void>;
 }

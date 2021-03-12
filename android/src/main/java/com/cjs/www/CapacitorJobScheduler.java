@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 
 import com.cjs.www.capacitorjobscheduler.R;
+import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -52,10 +53,24 @@ public class CapacitorJobScheduler extends Plugin {
 
   }
 
+  @PluginMethod()
+  public void echo(PluginCall call) {
+    String value = call.getString("value");
+    String contentTitle = call.getString("contentTitle");
+    String contentText = call.getString("contentText");
+    JSObject ret = new JSObject();
+    call.save();
+    ret.put("value", value);
+    Intent launchIntent = getContext().getPackageManager().getLaunchIntentForPackage(
+            getContext().getPackageName());
+    startForegroundServiceAboveOreo(launchIntent,contentTitle,contentText);
+    //call.success(ret);
+  }
 
   // StartForeground Service. There are 2 methods based on whic devices you are targeting
-  @PluginMethod
+  //@PluginMethod
   public void startForegroundServiceAboveOreo(Intent i, String ContentTitle, String ContentText) {
+  //String ContentTitle, String ContentText
 
     Intent launchIntent = getContext().getPackageManager().getLaunchIntentForPackage(
       getContext().getPackageName());

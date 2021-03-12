@@ -1,6 +1,6 @@
 {
   "name": "capacitor-job-scheduler",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "a plugin about scheduling services in android using capacitor",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",
